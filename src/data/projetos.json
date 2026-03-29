@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "titulo": "Residência Contemporânea",
+    "categoria": "Residencial",
+    "imagem_capa": "/images/portfolio/foto1.jpg"
+  },
+  {
+    "id": "2",
+    "titulo": "Edifício Comercial",
+    "categoria": "Viabilidade e Projeto",
+    "imagem_capa": "/images/portfolio/foto2.jpg"
+  }
+]
