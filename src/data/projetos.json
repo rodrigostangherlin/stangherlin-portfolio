@@ -1,14 +1,32 @@
 [
   {
     "id": "1",
-    "titulo": "Residência Contemporânea",
-    "categoria": "Residencial",
-    "imagem_capa": "/images/portfolio/foto1.jpg"
+    "titulo": "Residências Geminadas",
+    "categoria": "Arquitetura Residencial",
+    "imagem_capa": "/images/portfolio/geminadas-fachada-01.jpg",
+    "local": "Porto Belo, SC",
+    "detalhes": {
+      "construtora": "Stangherlin Incorporadora",
+      "tipologia": "Casas Geminadas",
+      "area_construida": "360m²",
+      "unidades": "02 unidades",
+      "configuracao": "03 Suítes | 02 Vagas",
+      "descricao": "Projeto focado na maximização do potencial construtivo de terreno padrão, aliando privacidade e design contemporâneo."
+    }
   },
   {
     "id": "2",
-    "titulo": "Edifício Comercial",
-    "categoria": "Viabilidade e Projeto",
-    "imagem_capa": "/images/portfolio/foto2.jpg"
+    "titulo": "Edifício Master",
+    "categoria": "Viabilidade Urbanística",
+    "imagem_capa": "/images/portfolio/estudo-viabilidade-01.jpg",
+    "local": "Itapema, SC",
+    "detalhes": {
+      "construtora": "Exemplo Construtora",
+      "tipologia": "Multifamiliar Vertical",
+      "area_construida": "4.500m²",
+      "unidades": "24 apartamentos",
+      "configuracao": "Tipo: 02 Suítes",
+      "descricao": "Análise estratégica de zoneamento para aproveitamento máximo de outorga onerosa."
+    }
   }
 ]
