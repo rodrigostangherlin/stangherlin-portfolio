@@ -1,32 +1,20 @@
 [
   {
     "id": "1",
-    "titulo": "Residências Geminadas",
-    "categoria": "Arquitetura Residencial",
-    "imagem_capa": "/images/portfolio/geminadas-fachada-01.jpg",
-    "local": "Porto Belo, SC",
+    "titulo": "Villa Maiorca",
+    "categoria": "Edifício Multifamiliar de Alto Padrão",
+    "imagem_capa": "/images/portfolio/1.jpg",
+    "local": "Itapema, SC - Meia Praia",
+    "galeria": [
+      
+    ],
     "detalhes": {
-      "construtora": "Stangherlin Incorporadora",
-      "tipologia": "Casas Geminadas",
-      "area_construida": "360m²",
-      "unidades": "02 unidades",
-      "configuracao": "03 Suítes | 02 Vagas",
-      "descricao": "Projeto focado na maximização do potencial construtivo de terreno padrão, aliando privacidade e design contemporâneo."
-    }
-  },
-  {
-    "id": "2",
-    "titulo": "Edifício Master",
-    "categoria": "Viabilidade Urbanística",
-    "imagem_capa": "/images/portfolio/estudo-viabilidade-01.jpg",
-    "local": "Itapema, SC",
-    "detalhes": {
-      "construtora": "Exemplo Construtora",
-      "tipologia": "Multifamiliar Vertical",
-      "area_construida": "4.500m²",
-      "unidades": "24 apartamentos",
-      "configuracao": "Tipo: 02 Suítes",
-      "descricao": "Análise estratégica de zoneamento para aproveitamento máximo de outorga onerosa."
+      "construtora": "GANDIN",
+      "tipologia": "Edifício Residencial e Comercial",
+      "area_construida": "26.315,10 m²",
+      "unidades": "72 Residenciais | 05 Comerciais | 43 Pavimentos",
+      "configuracao": "02 aptos/andar (04 Suítes) e 01 apto/andar (05 Suítes)",
+      "descricao": "Projeto focado na maximização do potencial construtivo de terreno em área nobre, aliando alto padrão, privacidade e design contemporâneo. Destaque para o Rooftop no 43º pavimento e infraestrutura de lazer completa no 5º pavimento."
     }
   }
 ]
