@@ -11,7 +11,6 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col">
       
-      {/* Navegação Minimalista */}
       <motion.nav 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -27,7 +26,6 @@ export default function Home() {
         </div>
       </motion.nav>
 
-      {/* Hero Section */}
       <section className="relative h-screen flex flex-col justify-center items-center text-center p-6 overflow-hidden">
         <Image 
           src="/images/portfolio/hero-bg.jpg" 
@@ -63,10 +61,9 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Grid de Portfólio 100% visível */}
       <PortfolioGrid />
 
-      {/* Chamada para Viabilidade à prova de Safari */}
+      {/* CURA DO SAFARI: Esta seção agora aparece incondicionalmente */}
       <section id="viabilidade" className="bg-gray-900 text-white p-12 lg:p-32 text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl lg:text-4xl font-light mb-6">Consulta de Viabilidade Urbanística</h2>
