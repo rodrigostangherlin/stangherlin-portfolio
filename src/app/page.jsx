@@ -34,6 +34,7 @@ export default function Home() {
           alt="Stangherlin Arquitetura - Projetos de Alto Padrão"
           fill
           priority
+          sizes="100vw"
           className="object-cover object-center -z-10"
         />
         <div className="absolute inset-0 bg-black/50 z-0"></div>
@@ -62,18 +63,12 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Grid de Portfólio com TILT e profundidade */}
+      {/* Grid de Portfólio 100% visível */}
       <PortfolioGrid />
 
-      {/* Chamada para Viabilidade com Botão de Alto Impacto */}
-      {/* CORREÇÃO SAFARI: Removido o 'overflow-hidden' desta section */}
+      {/* Chamada para Viabilidade à prova de Safari */}
       <section id="viabilidade" className="bg-gray-900 text-white p-12 lg:p-32 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }} /* CORREÇÃO SAFARI: Ajuste de gatilho */
-          transition={{ duration: 0.8 }}
-        >
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl lg:text-4xl font-light mb-6">Consulta de Viabilidade Urbanística</h2>
           <p className="text-gray-400 max-w-2xl mx-auto mb-10 text-lg font-light">
             Desenvolvemos uma ferramenta exclusiva para análises rápidas de zoneamento e potencial construtivo. Tome decisões de investimento com precisão geométrica.
@@ -87,7 +82,7 @@ export default function Home() {
           >
             Acessar Plataforma Web
           </a>
-        </motion.div>
+        </div>
       </section>
 
       <Footer />
