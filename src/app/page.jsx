@@ -66,11 +66,12 @@ export default function Home() {
       <PortfolioGrid />
 
       {/* Chamada para Viabilidade com Botão de Alto Impacto */}
-      <section id="viabilidade" className="bg-gray-900 text-white p-12 lg:p-32 text-center overflow-hidden">
+      {/* CORREÇÃO SAFARI: Removido o 'overflow-hidden' desta section */}
+      <section id="viabilidade" className="bg-gray-900 text-white p-12 lg:p-32 text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.2 }} /* CORREÇÃO SAFARI: Ajuste de gatilho */
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl lg:text-4xl font-light mb-6">Consulta de Viabilidade Urbanística</h2>
@@ -78,7 +79,6 @@ export default function Home() {
             Desenvolvemos uma ferramenta exclusiva para análises rápidas de zoneamento e potencial construtivo. Tome decisões de investimento com precisão geométrica.
           </p>
           
-          {/* BOTÃO ATUALIZADO: Fundo branco puro, texto preto e negrito, com efeito de sombra/luz (glow) */}
           <a 
             href="https://app-viabilidade.vercel.app/" 
             target="_blank" 
