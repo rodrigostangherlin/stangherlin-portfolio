@@ -24,9 +24,9 @@
     "imagem_capa": "/images/portfolio/2.jpg",
     "local": "Itapema, SC - Meia Praia",
     "galeria": [
-      "/images/2.jpg",
-      "/images/2a.jpg",
-      "/images/2b.jpg"
+      "/images/portfolio/2.jpg",
+      "/images/portfolio/2a.jpg",
+      "/images/portfolio/2b.jpg"
     ],
     "detalhes": {
       "construtora": "HSANTOS",
