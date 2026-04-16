@@ -14,7 +14,7 @@
       "area_construida": "26.315,10 m²",
       "unidades": "72 Residenciais | 05 Comerciais | 43 Pavimentos",
       "configuracao": "02 aptos/andar (04 Suítes) e 01 apto/andar (05 Suítes)",
-      "descricao": "Projeto focado na maximização do potencial construtivo de terreno em área nobre, aliando alto padrão, privacidade e design contemporâneo. Destaque para o Rooftop no 43º pavimento e infraestrutura de lazer completa no 5º pavimento."
+      "descricao": "Projeto focado na maximização do potencial construtivo em frente Avenida Nereu Ramos. Destaque para o Rooftop no 43º pavimento e infraestrutura de lazer completa no 5º pavimento."
     }
   },
   {
@@ -34,7 +34,26 @@
       "area_construida": "7.647,95 m²",
       "unidades": "22 Residenciais | 28 Pavimentos",
       "configuracao": "01 apto/andar (04 Suítes) e 01 apto/duplex (05 Suítes)",
-      "descricao": "Projeto focado na maximização do potencial construtivo de terreno em área nobre, aliando alto padrão, privacidade e design contemporâneo. Destaque para lazer completo."
+      "descricao": "Projeto focado na maximização do potencial construtivo de terreno em área nobre, aliando alto padrão, estilo de vida moderno e design contemporâneo."
+    }
+  },
+  {
+    "id": "3",
+    "titulo": "Shard Tower",
+    "categoria": "Edifício Multifamiliar de Alto Padrão",
+    "imagem_capa": "/images/portfolio/3.jpg",
+    "local": "Itapema, SC - Meia Praia",
+    "galeria": [
+      "/images/portfolio/3.jpg",
+      "/images/portfolio/3a.jpg"
+    ],
+    "detalhes": {
+      "construtora": "HSANTOS",
+      "tipologia": "Edifício Residencial e Comercial",
+      "area_construida": "22.452,95 m²",
+      "unidades": "66 Residenciais | 11 Comerciais | 39 Pavimentos",
+      "configuracao": "02 aptos/andar (03 Suítes) e (04 Suítes)",
+      "descricao": "Projeto focado na maximização do potencial construtivo de terreno em área nobre, aliando alto padrão, privacidade e liberdade. Lazer com infraestrutura completa."
     }
   }
 ]
