@@ -55,5 +55,24 @@
       "configuracao": "02 aptos/andar (03 Suítes) e (04 Suítes)",
       "descricao": "Projeto focado na maximização do potencial construtivo de terreno em área nobre, aliando alto padrão, privacidade e liberdade. Lazer com infraestrutura completa."
     }
+  },
+  {
+    "id": "4",
+    "titulo": "Francisco I",
+    "categoria": "Edifício Multifamiliar de Alto Padrão",
+    "imagem_capa": "/images/portfolio/4.jpg",
+    "local": "Itapema, SC - Meia Praia",
+    "galeria": [
+      "/images/portfolio/4.jpg",
+      "/images/portfolio/4a.jpg"
+    ],
+    "detalhes": {
+      "construtora": "GESSELE",
+      "tipologia": "Edifício Residencial Multifamiliar",
+      "area_construida": "6.077,55 m²",
+      "unidades": "19 Residenciais | 25 Pavimentos",
+      "configuracao": "01 apto/andar (04 Suítes) e 01 apto/duplex (06 Suítes)",
+      "descricao": "Projeto é um verdadeiro luxo, uma obra de arte, unindo beleza, funcionalidade e sofisticação."
+    }
   }
 ]
