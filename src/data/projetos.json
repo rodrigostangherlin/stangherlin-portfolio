@@ -106,7 +106,7 @@
       "construtora": "MEIA PRAIA",
       "tipologia": "Edifício Residencial e Comercial",
       "area_construida": "20.914,30 m²",
-      "unidades": "54 Residenciais | 12 Comercial | 34 Pavimentos",
+      "unidades": "54 Residenciais | 12 Comerciais | 34 Pavimentos",
       "configuracao": "02 aptos/andar (04 Suítes) e duplex",
       "descricao": "Projeto robusto e pensado para clientes que procuram apartamentos maiores de alto padrão, destaque para as coberturas duplex."
     }
@@ -124,7 +124,7 @@
       "construtora": "GANDIN",
       "tipologia": "Edifício Residencial e Comercial",
       "area_construida": "12.984,90 m²",
-      "unidades": "44 Residenciais | 9 Comercial | 28 Pavimentos",
+      "unidades": "44 Residenciais | 9 Comerciais | 28 Pavimentos",
       "configuracao": "02 aptos/andar (03 Suítes)",
       "descricao": "Projeto planejado para receber os sonhos de sua familia, com excelente localização."
     }
@@ -142,7 +142,7 @@
       "construtora": "KRCON",
       "tipologia": "Edifício Residencial e Comercial",
       "area_construida": "17.187,70 m²",
-      "unidades": "50 Residenciais | 8 Comercial | 31 Pavimentos",
+      "unidades": "50 Residenciais | 8 Comerciais | 31 Pavimentos",
       "configuracao": "02 aptos/andar (04 Suítes)",
       "descricao": "Projeto inspirado na arquitetura neoclássica, agregando requinte e sofisticação, o Paramount Tower é um lugar onde seus momentos de lazer e descanso tornam-se ainda mais especiais. Com uma surpreendente vista do bairro Meia Praia."
     }
@@ -160,7 +160,7 @@
       "construtora": "ITAPUI",
       "tipologia": "Edifício Residencial e Comercial",
       "area_construida": "5.789,10 m²",
-      "unidades": "22 Residenciais | 3 Comercial | 16 Pavimentos",
+      "unidades": "22 Residenciais | 3 Comerciais | 16 Pavimentos",
       "configuracao": "02 aptos/andar (03 Suítes) e (04 Suítes)",
       "descricao": "Projeto inspirado no icônico Monumento White Cliffs of Dover, o Dover Mountain combina elegância e modernidade em cada detalhe."
     }
@@ -201,5 +201,24 @@
       "configuracao": "03 Suítes",
       "descricao": "Projeto unico e contemporâneo pensado para o melhor aproveitamento do terreno, área aos fundos integrada a piscina, trazendo as caracteristicas e sonhos dos proprietarios em cada detalhe."
     }
-  }
+  },
+  {
+    "id": "12",
+    "titulo": "Villa de Capri",
+    "categoria": "Edifício Multifamiliar de Alto Padrão",
+    "imagem_capa": "/images/portfolio/12.jpg",
+    "local": "Itapema, SC - Meia Praia",
+    "galeria": [
+      "/images/portfolio/12.jpg",
+      "/images/portfolio/12a.jpg"
+    ],
+    "detalhes": {
+      "construtora": "GANDIN",
+      "tipologia": "Edifício Residencial e Comercial",
+      "area_construida": "14.170,35 m²",
+      "unidades": "35 Residenciais | 3 Comerciais | 44 Pavimentos",
+      "configuracao": "01 apto/andar (04 Suítes)",
+      "descricao": "Projeto exclusivo com apartamentos isolados por pavimento, altura imponente de 160m de altura, um gigante com áreas de lazer no 08° e 44° pavimentos."
+    }
+  }  
 ]
