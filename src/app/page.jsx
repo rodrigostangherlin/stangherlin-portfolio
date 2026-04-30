@@ -40,7 +40,6 @@ export default function Home() {
         </div>
       </motion.nav>
 
-      {/* Hero Section */}
       <section className="relative h-screen flex flex-col justify-center items-center text-center p-6 overflow-hidden">
         <Image 
           src="/images/portfolio/hero-bg.jpg" 
@@ -76,7 +75,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Manifesto Section */}
       <section id="manifesto" className="bg-white text-black py-24 lg:py-32 px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <motion.div 
@@ -120,7 +118,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Grid de Portfólio */}
       <PortfolioGrid />
 
       <section id="viabilidade" className="bg-gray-900 text-white p-12 lg:p-32 text-center">
@@ -143,7 +140,6 @@ export default function Home() {
 
       <Footer />
 
-      {/* Botão Flutuante Elegante Lapidado - Vidro Fosco */}
       <AnimatePresence>
         {showScrollTop && (
           <motion.button

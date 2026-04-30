@@ -14,7 +14,7 @@
       "area_construida": "26.315,10 m²",
       "unidades": "72 Residenciais | 05 Comerciais | 43 Pavimentos",
       "configuracao": "02 aptos/andar (04 Suítes) e 01 apto/andar (05 Suítes)",
-      "descricao": "Projeto focado na maximização do potencial construtivo de terreno em área nobre, aliando alto padrão, privacidade e design contemporâneo. Destaque para o Rooftop no 43º pavimento e infraestrutura de lazer completa no 5º pavimento."
+      "descricao": "Projeto focado na maximização do potencial construtivo em frente Avenida Nereu Ramos. Destaque para o Rooftop no 43º pavimento e infraestrutura de lazer completa no 5º pavimento."
     }
   },
   {
@@ -34,7 +34,191 @@
       "area_construida": "7.647,95 m²",
       "unidades": "22 Residenciais | 28 Pavimentos",
       "configuracao": "01 apto/andar (04 Suítes) e 01 apto/duplex (05 Suítes)",
-      "descricao": "Projeto focado na maximização do potencial construtivo de terreno em área nobre, aliando alto padrão, privacidade e design contemporâneo. Destaque para lazer completo."
+      "descricao": "Projeto focado na maximização do potencial construtivo de terreno em área nobre, aliando alto padrão, estilo de vida moderno e design contemporâneo."
     }
-  }
+  },
+  {
+    "id": "3",
+    "titulo": "Shard Tower",
+    "categoria": "Edifício Multifamiliar de Alto Padrão",
+    "imagem_capa": "/images/portfolio/3.jpg",
+    "local": "Itapema, SC - Meia Praia",
+    "galeria": [
+      "/images/portfolio/3.jpg",
+      "/images/portfolio/3a.jpg"
+    ],
+    "detalhes": {
+      "construtora": "HSANTOS",
+      "tipologia": "Edifício Residencial e Comercial",
+      "area_construida": "22.452,95 m²",
+      "unidades": "66 Residenciais | 11 Comerciais | 39 Pavimentos",
+      "configuracao": "02 aptos/andar (03 Suítes) e (04 Suítes)",
+      "descricao": "Projeto focado na maximização do potencial construtivo de terreno em área nobre, aliando alto padrão, privacidade e liberdade. Lazer com infraestrutura completa."
+    }
+  },
+  {
+    "id": "4",
+    "titulo": "Francisco I",
+    "categoria": "Edifício Multifamiliar de Alto Padrão",
+    "imagem_capa": "/images/portfolio/4.jpg",
+    "local": "Itapema, SC - Meia Praia",
+    "galeria": [
+      "/images/portfolio/4.jpg",
+      "/images/portfolio/4a.jpg"
+    ],
+    "detalhes": {
+      "construtora": "GESSELE",
+      "tipologia": "Edifício Residencial Multifamiliar",
+      "area_construida": "6.077,55 m²",
+      "unidades": "19 Residenciais | 25 Pavimentos",
+      "configuracao": "01 apto/andar (04 Suítes) e 01 apto/duplex (06 Suítes)",
+      "descricao": "Projeto é um verdadeiro luxo, uma obra de arte, unindo beleza, funcionalidade e sofisticação."
+    }
+  },
+  {
+    "id": "5",
+    "titulo": "Park Avenue",
+    "categoria": "Edifício Multifamiliar de Alto Padrão",
+    "imagem_capa": "/images/portfolio/5.jpg",
+    "local": "Itapema, SC - Centro",
+    "galeria": [
+      "/images/portfolio/5.jpg"
+    ],
+    "detalhes": {
+      "construtora": "CIBEA",
+      "tipologia": "Edifício Residencial e Comercial",
+      "area_construida": "31.915,70 m²",
+      "unidades": "140 Residenciais | 1 Comercial | 41 Pavimentos",
+      "configuracao": "04 aptos/andar (03 Suítes) e (04 Suítes)",
+      "descricao": "Projeto focado em trazer todo conforto e qualidade que você e sua família merece."
+    }
+  },
+  {
+    "id": "6",
+    "titulo": "Diamond Tower",
+    "categoria": "Edifício Multifamiliar de Alto Padrão",
+    "imagem_capa": "/images/portfolio/6.jpg",
+    "local": "Itapema, SC - Meia Praia",
+    "galeria": [
+      "/images/portfolio/6.jpg"
+    ],
+    "detalhes": {
+      "construtora": "MEIA PRAIA",
+      "tipologia": "Edifício Residencial e Comercial",
+      "area_construida": "20.914,30 m²",
+      "unidades": "54 Residenciais | 12 Comerciais | 34 Pavimentos",
+      "configuracao": "02 aptos/andar (04 Suítes) e duplex",
+      "descricao": "Projeto robusto e pensado para clientes que procuram apartamentos maiores de alto padrão, destaque para as coberturas duplex."
+    }
+  },
+  {
+    "id": "7",
+    "titulo": "Dom Benedito",
+    "categoria": "Edifício Multifamiliar de Alto Padrão",
+    "imagem_capa": "/images/portfolio/7.jpg",
+    "local": "Itapema, SC - Meia Praia",
+    "galeria": [
+      "/images/portfolio/7.jpg"
+    ],
+    "detalhes": {
+      "construtora": "GANDIN",
+      "tipologia": "Edifício Residencial e Comercial",
+      "area_construida": "12.984,90 m²",
+      "unidades": "44 Residenciais | 9 Comerciais | 28 Pavimentos",
+      "configuracao": "02 aptos/andar (03 Suítes)",
+      "descricao": "Projeto planejado para receber os sonhos de sua familia, com excelente localização."
+    }
+  },
+  {
+    "id": "8",
+    "titulo": "Paramount Tower",
+    "categoria": "Edifício Multifamiliar de Alto Padrão",
+    "imagem_capa": "/images/portfolio/8.jpg",
+    "local": "Itapema, SC - Meia Praia",
+    "galeria": [
+      "/images/portfolio/8.jpg"
+    ],
+    "detalhes": {
+      "construtora": "KRCON",
+      "tipologia": "Edifício Residencial e Comercial",
+      "area_construida": "17.187,70 m²",
+      "unidades": "50 Residenciais | 8 Comerciais | 31 Pavimentos",
+      "configuracao": "02 aptos/andar (04 Suítes)",
+      "descricao": "Projeto inspirado na arquitetura neoclássica, agregando requinte e sofisticação, o Paramount Tower é um lugar onde seus momentos de lazer e descanso tornam-se ainda mais especiais. Com uma surpreendente vista do bairro Meia Praia."
+    }
+  },
+  {
+    "id": "9",
+    "titulo": "Dover Mountain",
+    "categoria": "Edifício Multifamiliar de Alto Padrão",
+    "imagem_capa": "/images/portfolio/9.jpg",
+    "local": "Itapema, SC - Meia Praia",
+    "galeria": [
+      "/images/portfolio/9.jpg"
+    ],
+    "detalhes": {
+      "construtora": "ITAPUI",
+      "tipologia": "Edifício Residencial e Comercial",
+      "area_construida": "5.789,10 m²",
+      "unidades": "22 Residenciais | 3 Comerciais | 16 Pavimentos",
+      "configuracao": "02 aptos/andar (03 Suítes) e (04 Suítes)",
+      "descricao": "Projeto inspirado no icônico Monumento White Cliffs of Dover, o Dover Mountain combina elegância e modernidade em cada detalhe."
+    }
+  },
+  {
+    "id": "10",
+    "titulo": "Residencial Salim",
+    "categoria": "Residencia de Alto Padrão",
+    "imagem_capa": "/images/portfolio/10.jpg",
+    "local": "Itapema, SC - Casa Branca",
+    "galeria": [
+      "/images/portfolio/10.jpg",
+      "/images/portfolio/10a.jpg"
+    ],
+    "detalhes": {
+      "construtora": "SALIM e GALVAN",
+      "tipologia": "Residencial Unifamiliar",
+      "area_construida": "788,15 m²",
+      "unidades": "01 Residencial | 2 Pavimentos",
+      "configuracao": "05 Suítes",
+      "descricao": "Projeto unico e moderno grande living com pé-direito duplo, área de festas aos fundos integrada a piscina, trazendo as caracteristicas e sonhos dos proprietarios em cada detalhe."
+    }
+  },
+  {
+    "id": "11",
+    "titulo": "Residencial Porto Belo",
+    "categoria": "Residencia de Alto Padrão",
+    "imagem_capa": "/images/portfolio/11.jpg",
+    "local": "Porto Belo, SC - Alto Perequê",
+    "galeria": [
+      "/images/portfolio/11.jpg"
+    ],
+    "detalhes": {
+      "construtora": "STANGHERLIN",
+      "tipologia": "Residencial Unifamiliar",
+      "area_construida": "260,35 m²",
+      "unidades": "01 Residencial | 2 Pavimentos",
+      "configuracao": "03 Suítes",
+      "descricao": "Projeto unico e contemporâneo pensado para o melhor aproveitamento do terreno, área aos fundos integrada a piscina, trazendo as caracteristicas e sonhos dos proprietarios em cada detalhe."
+    }
+  },
+  {
+    "id": "12",
+    "titulo": "Villa de Capri",
+    "categoria": "Edifício Multifamiliar de Alto Padrão",
+    "imagem_capa": "/images/portfolio/12.jpg",
+    "local": "Itapema, SC - Meia Praia",
+    "galeria": [
+      "/images/portfolio/12.jpg",
+      "/images/portfolio/12a.jpg"
+    ],
+    "detalhes": {
+      "construtora": "GANDIN",
+      "tipologia": "Edifício Residencial e Comercial",
+      "area_construida": "14.170,35 m²",
+      "unidades": "35 Residenciais | 3 Comerciais | 44 Pavimentos",
+      "configuracao": "01 apto/andar (04 Suítes)",
+      "descricao": "Projeto exclusivo com apartamentos isolados por pavimento, altura imponente de 160m de altura, um gigante com áreas de lazer no 08° e 44° pavimentos."
+    }
+  }  
 ]
