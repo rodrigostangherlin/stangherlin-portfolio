@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import projetos from '../data/projetos.json';
 
-// Ícones minimalistas de luxo (SVG puro, sem fundos)
 const SetaEsquerda = () => (
   <svg stroke="currentColor" fill="none" strokeWidth="1" viewBox="0 0 24 24" className="w-8 h-8 drop-shadow-md" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"></polyline></svg>
 );
@@ -16,10 +15,9 @@ const SetaDireita = () => (
 function PortfolioItem({ projeto, index, onClick }) {
   return (
     <motion.div 
-      // CURA DO SAFARI: 'animate' faz as imagens carregarem direto, sem depender de rolagem
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: index * 0.15 }}
+      transition={{ duration: 0.8, delay: (index % 6) * 0.15 }}
       className="relative aspect-[4/5] cursor-pointer group"
       onClick={() => onClick(projeto)}
     >
@@ -43,6 +41,10 @@ function PortfolioItem({ projeto, index, onClick }) {
 export default function PortfolioGrid() {
   const [projetoSelecionado, setProjetoSelecionado] = useState(null);
   const [fotoAtual, setFotoAtual] = useState(0);
+  const [mostrarTodos, setMostrarTodos] = useState(false);
+
+  // Limita a exibição inicial a 6 projetos para não cansar o usuário
+  const projetosExibidos = mostrarTodos ? projetos : projetos.slice(0, 6);
 
   const abrirProjeto = (projeto) => {
     setProjetoSelecionado(projeto);
@@ -56,12 +58,29 @@ export default function PortfolioGrid() {
   };
 
   return (
-    <section id="portfolio" className="p-6 lg:p-12 bg-white">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projetos.map((p, i) => (
+    <section id="portfolio" className="p-6 lg:p-12 lg:py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto mb-16 text-center">
+        <h2 className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-4">Obras e Projetos</h2>
+        <h3 className="text-3xl font-light text-black">Nosso Portfólio</h3>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {projetosExibidos.map((p, i) => (
           <PortfolioItem key={p.id} projeto={p} index={i} onClick={abrirProjeto} />
         ))}
       </div>
+
+      {/* Botão de Expandir Galeria */}
+      {!mostrarTodos && projetos.length > 6 && (
+        <div className="flex justify-center mt-16">
+          <button 
+            onClick={() => setMostrarTodos(true)}
+            className="border border-black text-black px-12 py-4 uppercase tracking-widest text-sm hover:bg-black hover:text-white transition-colors duration-300"
+          >
+            Carregar Mais Projetos
+          </button>
+        </div>
+      )}
 
       <AnimatePresence>
         {projetoSelecionado && (
@@ -95,7 +114,6 @@ export default function PortfolioGrid() {
                   </motion.div>
                 </AnimatePresence>
 
-                {/* NOVO DESIGN DA GALERIA: Setas invisíveis até o hover, sem caixas brancas */}
                 {projetoSelecionado.galeria && projetoSelecionado.galeria.length > 1 && (
                   <div className="absolute inset-0 flex items-center justify-between px-6 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
                     <button 
