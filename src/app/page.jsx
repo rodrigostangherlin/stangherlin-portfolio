@@ -23,23 +23,24 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col relative bg-black">
+    <main className="min-h-screen flex flex-col relative">
       
-      {/* O PRE-LOADER CINEMATOGRÁFICO */}
+      {/* O PRE-LOADER CINEMATOGRÁFICO - TELA CHEIA SEM BORDAS */}
       <AnimatePresence>
         {isLoading && (
           <motion.div 
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="fixed inset-0 z-[200] bg-[#434546] flex items-center justify-center"
+            className="fixed inset-0 z-[200] bg-[#1a1a1a] flex items-center justify-center overflow-hidden"
           >
+            {/* O scale-110 empurra as bordas e a marca d'água para fora da tela */}
             <video 
               autoPlay 
               muted 
               playsInline
               onEnded={() => setIsLoading(false)}
-              className="w-full max-w-2xl px-4"
+              className="absolute inset-0 w-full h-full object-cover scale-[1.15]"
             >
               <source src="/videos/logo-animada.mp4" type="video/mp4" />
               O seu navegador não suporta vídeos.
@@ -48,15 +49,19 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* NAVEGAÇÃO PRINCIPAL */}
       <motion.nav 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
         className="absolute top-0 w-full z-50 flex justify-between items-center p-6 lg:px-12 bg-transparent text-white"
       >
-        {/* LOGÓTIPO MINIMALISTA (IMAGEM PNG) */}
-        <div className="relative w-48 h-8 md:h-10 opacity-90 hover:opacity-100 transition-opacity">
+        {/* LOGO TEXTO COM ANIMAÇÃO */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5, delay: 0.8, ease: "easeOut" }}
+          className="relative w-48 h-8 md:h-10 hover:opacity-80 transition-opacity cursor-pointer"
+        >
           <Image 
             src="/images/logo-texto.png" 
             alt="Stangherlin" 
@@ -64,7 +69,7 @@ export default function Home() {
             className="object-contain object-left" 
             priority
           />
-        </div>
+        </motion.div>
 
         <div className="space-x-8 text-sm uppercase tracking-wide hidden md:block drop-shadow-md">
           <a href="#manifesto" className="hover:text-gray-300 transition">Manifesto</a>
@@ -73,7 +78,7 @@ export default function Home() {
         </div>
       </motion.nav>
 
-      {/* HERO SECTION */}
+      {/* HERO SECTION - Fundo da Foto Restaurado */}
       <section className="relative h-screen flex flex-col justify-center items-center text-center p-6 overflow-hidden">
         <Image 
           src="/images/portfolio/hero-bg.jpg" 
@@ -109,7 +114,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* MANIFESTO */}
       <section id="manifesto" className="bg-white text-black py-24 lg:py-32 px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <motion.div 
@@ -155,7 +159,6 @@ export default function Home() {
 
       <PortfolioGrid />
 
-      {/* APP VIABILIDADE */}
       <section id="viabilidade" className="bg-gray-900 text-white p-12 lg:p-32 text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl lg:text-4xl font-light mb-6">Consulta de Viabilidade Urbanística</h2>
@@ -176,7 +179,6 @@ export default function Home() {
 
       <Footer />
 
-      {/* BOTÃO FLUTUANTE DE VOLTAR AO TOPO */}
       <AnimatePresence>
         {showScrollTop && (
           <motion.button

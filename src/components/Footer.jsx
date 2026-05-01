@@ -26,19 +26,22 @@ export default function Footer() {
         <h2 className="text-2xl font-light tracking-[0.3em] uppercase mb-4 text-center">Stangherlin</h2>
         <p className="text-gray-500 text-xs tracking-widest uppercase mb-12 text-center">Arquitetura e Inteligência Construtiva</p>
         
-        {/* CITAÇÃO BÍBLICA RESTAURADA */}
+        {/* CITAÇÃO BÍBLICA */}
         <div className="max-w-2xl mx-auto text-center mb-16 px-4">
           <p className="text-gray-400 font-light italic leading-relaxed text-sm">
-            "Se o Senhor não edificar a casa, em vão trabalham os que a edificam." Salmos 127:1
+            "Com a sabedoria se edifica a casa, e com a inteligência ela se firma; pelo conhecimento se encherão as câmaras de todas as substâncias preciosas e deleitáveis."
           </p>
+          <p className="text-gray-500 text-[10px] mt-4 uppercase tracking-[0.2em]">Provérbios 24:3-4</p>
         </div>
         
+        {/* LINKS FUNCIONAIS RESTAURADOS */}
         <div className="w-full border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-500 tracking-widest uppercase">
           <p>© {new Date().getFullYear()} Stangherlin. Todos os direitos reservados.</p>
-          <div className="flex space-x-8 mt-6 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">Instagram</a>
-            <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-            <a href="#contato" className="hover:text-white transition-colors">Contato</a>
+          <div className="flex space-x-8 mt-6 md:mt-0 z-20 relative">
+            {/* Coloque os seus links reais dentro do href="" */}
+            <a href="https://instagram.com/stangherlin.arq" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors cursor-pointer">Instagram</a>
+            <a href="https://linkedin.com/in/rodrigostangherlin" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors cursor-pointer">LinkedIn</a>
+            <a href="mailto:contato@stangherlin.arq.br" className="hover:text-white transition-colors cursor-pointer">Contato</a>
           </div>
         </div>
       </div>
