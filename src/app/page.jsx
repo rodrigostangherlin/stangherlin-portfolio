@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col relative">
       
-      {/* O PRE-LOADER CINEMATOGRÁFICO - TELA CHEIA SEM BORDAS */}
+      {/* O PRE-LOADER CINEMATOGRÁFICO - INTELIGENTE (MOBILE E DESKTOP) */}
       <AnimatePresence>
         {isLoading && (
           <motion.div 
@@ -34,7 +34,7 @@ export default function Home() {
             transition={{ duration: 1.5, ease: "easeInOut" }}
             className="fixed inset-0 z-[200] bg-[#1a1a1a] flex items-center justify-center overflow-hidden"
           >
-            {/* O scale-110 empurra as bordas e a marca d'água para fora da tela */}
+            {/* O scale-115 continua aqui para esconder as marcas d'água nas bordas */}
             <video 
               autoPlay 
               muted 
@@ -42,7 +42,12 @@ export default function Home() {
               onEnded={() => setIsLoading(false)}
               className="absolute inset-0 w-full h-full object-cover scale-[1.15]"
             >
+              {/* Se a tela for de celular (até 768px), carrega o vídeo vertical */}
+              <source src="/videos/logo-animada-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
+              
+              {/* Para todas as outras telas maiores (PC, iPad), carrega o vídeo paisagem */}
               <source src="/videos/logo-animada.mp4" type="video/mp4" />
+              
               O seu navegador não suporta vídeos.
             </video>
           </motion.div>
@@ -78,7 +83,7 @@ export default function Home() {
         </div>
       </motion.nav>
 
-      {/* HERO SECTION - Fundo da Foto Restaurado */}
+      {/* HERO SECTION - Fundo da Foto */}
       <section className="relative h-screen flex flex-col justify-center items-center text-center p-6 overflow-hidden">
         <Image 
           src="/images/portfolio/hero-bg.jpg" 
