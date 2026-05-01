@@ -26,22 +26,52 @@ export default function Footer() {
         <h2 className="text-2xl font-light tracking-[0.3em] uppercase mb-4 text-center">Stangherlin</h2>
         <p className="text-gray-500 text-xs tracking-widest uppercase mb-12 text-center">Arquitetura e Inteligência Construtiva</p>
         
-        {/* CITAÇÃO BÍBLICA */}
+        {/* CITAÇÃO BÍBLICA DEFINITIVA */}
         <div className="max-w-2xl mx-auto text-center mb-16 px-4">
           <p className="text-gray-400 font-light italic leading-relaxed text-sm">
-            "Com a sabedoria se edifica a casa, e com a inteligência ela se firma; pelo conhecimento se encherão as câmaras de todas as substâncias preciosas e deleitáveis."
+            "Se o Senhor não edificar a casa, em vão trabalham os que a edificam."
           </p>
-          <p className="text-gray-500 text-[10px] mt-4 uppercase tracking-[0.2em]">Provérbios 24:3-4</p>
+          <p className="text-gray-500 text-[10px] mt-4 uppercase tracking-[0.2em]">Salmos 127:1</p>
         </div>
         
-        {/* LINKS FUNCIONAIS RESTAURADOS */}
+        {/* LINKS FUNCIONAIS OFICIAIS */}
         <div className="w-full border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-500 tracking-widest uppercase">
-          <p>© {new Date().getFullYear()} Stangherlin. Todos os direitos reservados.</p>
-          <div className="flex space-x-8 mt-6 md:mt-0 z-20 relative">
-            {/* Coloque os seus links reais dentro do href="" */}
-            <a href="https://instagram.com/stangherlin.arq" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors cursor-pointer">Instagram</a>
-            <a href="https://linkedin.com/in/rodrigostangherlin" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors cursor-pointer">LinkedIn</a>
-            <a href="mailto:contato@stangherlin.arq.br" className="hover:text-white transition-colors cursor-pointer">Contato</a>
+          <p className="mb-6 md:mb-0 text-center md:text-left">
+            © {new Date().getFullYear()} Stangherlin. Todos os direitos reservados.
+          </p>
+          
+          {/* Navegação de Contato (Flex-wrap garante que não quebre no celular) */}
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 z-20 relative">
+            <a 
+              href="https://www.instagram.com/stangherlin.arquitetura/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              Instagram
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/rodrigo-stangherlin" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              LinkedIn
+            </a>
+            <a 
+              href="mailto:stangherlin.arquitetura@gmail.com" 
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              E-mail
+            </a>
+            <a 
+              href="https://api.whatsapp.com/send/?phone=554792106396&text&type=phone_number&app_absent=0" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-white transition-colors cursor-pointer"
+            >
+              WhatsApp
+            </a>
           </div>
         </div>
       </div>
