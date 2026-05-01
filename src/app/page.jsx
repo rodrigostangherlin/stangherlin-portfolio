@@ -5,10 +5,10 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import PortfolioGrid from '../components/PortfolioGrid';
 import Footer from '../components/Footer';
-import InteractiveLogo from '../components/InteractiveLogo'; 
 
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,15 +23,48 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col relative">
+    <main className="min-h-screen flex flex-col relative bg-black">
       
+      {/* O PRE-LOADER CINEMATOGRÁFICO */}
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div 
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="fixed inset-0 z-[200] bg-[#434546] flex items-center justify-center"
+          >
+            <video 
+              autoPlay 
+              muted 
+              playsInline
+              onEnded={() => setIsLoading(false)}
+              className="w-full max-w-2xl px-4"
+            >
+              <source src="/videos/logo-animada.mp4" type="video/mp4" />
+              O seu navegador não suporta vídeos.
+            </video>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* NAVEGAÇÃO PRINCIPAL */}
       <motion.nav 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
         className="absolute top-0 w-full z-50 flex justify-between items-center p-6 lg:px-12 bg-transparent text-white"
       >
-        <InteractiveLogo />
+        {/* LOGÓTIPO MINIMALISTA (IMAGEM PNG) */}
+        <div className="relative w-48 h-8 md:h-10 opacity-90 hover:opacity-100 transition-opacity">
+          <Image 
+            src="/images/logo-texto.png" 
+            alt="Stangherlin" 
+            fill 
+            className="object-contain object-left" 
+            priority
+          />
+        </div>
 
         <div className="space-x-8 text-sm uppercase tracking-wide hidden md:block drop-shadow-md">
           <a href="#manifesto" className="hover:text-gray-300 transition">Manifesto</a>
@@ -40,6 +73,7 @@ export default function Home() {
         </div>
       </motion.nav>
 
+      {/* HERO SECTION */}
       <section className="relative h-screen flex flex-col justify-center items-center text-center p-6 overflow-hidden">
         <Image 
           src="/images/portfolio/hero-bg.jpg" 
@@ -54,7 +88,7 @@ export default function Home() {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
           className="relative z-10 flex flex-col items-center mt-16 w-full px-4"
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white mb-6 tracking-wide drop-shadow-lg">
@@ -75,6 +109,7 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* MANIFESTO */}
       <section id="manifesto" className="bg-white text-black py-24 lg:py-32 px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <motion.div 
@@ -89,12 +124,12 @@ export default function Home() {
               A arquitetura não é apenas o desenho de um horizonte. <br className="hidden md:block"/>
               <span className="font-medium">É o motor financeiro de um empreendimento.</span>
             </h3>
-            <p className="mt-8 text-gray-500 max-w-3xl text-lg font-light leading-relaxed">
+            <p className="mt-8 text-gray-500 max-w-3xl text-lg font-light leading-relaxed text-left">
               No mercado da construção civil, o amadorismo custa caro. Projetos desconexos, surpresas na execução e o desperdício de potencial construtivo são os maiores inimigos da rentabilidade. A Stangherlin nasceu para ser a solução definitiva contra a imprevisibilidade. Nós não desenhamos apenas edifícios; nós projetamos negócios altamente lucrativos, sólidos e escaláveis.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 text-left">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
               <h4 className="text-lg font-medium uppercase tracking-wider mb-3">A Engrenagem Perfeita</h4>
               <p className="text-gray-500 font-light leading-relaxed">Acreditamos que um projeto excepcional vai muito além da estética. Ele é uma obra de arte sustentada por uma engrenagem interna que funciona com precisão absoluta. Compatibilizamos cada disciplina e prevemos soluções antes que os problemas cheguem ao canteiro de obras. O resultado? Uma economia em escala gigantesca, velocidade na entrega e a eliminação de repasses de custos desnecessários.</p>
@@ -120,6 +155,7 @@ export default function Home() {
 
       <PortfolioGrid />
 
+      {/* APP VIABILIDADE */}
       <section id="viabilidade" className="bg-gray-900 text-white p-12 lg:p-32 text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl lg:text-4xl font-light mb-6">Consulta de Viabilidade Urbanística</h2>
@@ -140,6 +176,7 @@ export default function Home() {
 
       <Footer />
 
+      {/* BOTÃO FLUTUANTE DE VOLTAR AO TOPO */}
       <AnimatePresence>
         {showScrollTop && (
           <motion.button
