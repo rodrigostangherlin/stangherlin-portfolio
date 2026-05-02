@@ -12,11 +12,35 @@ const SetaDireita = () => (
   <svg stroke="currentColor" fill="none" strokeWidth="1" viewBox="0 0 24 24" className="w-8 h-8 drop-shadow-md" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
 );
 
+const FluidReveal = ({ children, delay = 0 }) => (
+  <div className="relative inline-block w-fit">
+    <motion.div
+      initial={{ clipPath: "inset(0 100% 0 0)" }}
+      whileInView={{ clipPath: ["inset(0 100% 0 0)", "inset(0 100% 0 0)", "inset(0 100% 0 0)", "inset(0 0% 0 0)"] }}
+      viewport={{ once: true }}
+      transition={{ duration: 2, times: [0, 0.4, 0.6, 1], ease: "easeInOut", delay: delay }}
+      className="text-black"
+    >
+      {children}
+    </motion.div>
+    <motion.div
+      initial={{ clipPath: "inset(0 100% 0 0)" }}
+      whileInView={{ clipPath: ["inset(0 100% 0 0)", "inset(0 0% 0 0)", "inset(0 0% 0 0)", "inset(0 0 0 100%)"] }}
+      viewport={{ once: true }}
+      transition={{ duration: 2, times: [0, 0.4, 0.6, 1], ease: "easeInOut", delay: delay }}
+      className="absolute inset-0 bg-black text-white"
+    >
+      {children}
+    </motion.div>
+  </div>
+);
+
 function PortfolioItem({ projeto, index, onClick }) {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.8, delay: (index % 6) * 0.15 }}
       className="relative aspect-[4/5] cursor-pointer group"
       onClick={() => onClick(projeto)}
@@ -43,7 +67,6 @@ export default function PortfolioGrid() {
   const [fotoAtual, setFotoAtual] = useState(0);
   const [mostrarTodos, setMostrarTodos] = useState(false);
 
-  // Limita a exibição inicial a 6 projetos para não cansar o usuário
   const projetosExibidos = mostrarTodos ? projetos : projetos.slice(0, 6);
 
   const abrirProjeto = (projeto) => {
@@ -60,8 +83,15 @@ export default function PortfolioGrid() {
   return (
     <section id="portfolio" className="p-6 lg:p-12 lg:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto mb-16 text-center">
-        <h2 className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-4">Obras e Projetos</h2>
-        <h3 className="text-3xl font-light text-black">Nosso Portfólio</h3>
+        <motion.h2 
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1 }}
+          className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-4"
+        >
+          Obras e Projetos
+        </motion.h2>
+        <h3 className="text-3xl md:text-4xl font-light text-black flex justify-center">
+          <FluidReveal delay={0.2}>Nosso Portfólio</FluidReveal>
+        </h3>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -70,7 +100,6 @@ export default function PortfolioGrid() {
         ))}
       </div>
 
-      {/* Botão de Expandir Galeria */}
       {!mostrarTodos && projetos.length > 6 && (
         <div className="flex justify-center mt-16">
           <button 
@@ -116,16 +145,10 @@ export default function PortfolioGrid() {
 
                 {projetoSelecionado.galeria && projetoSelecionado.galeria.length > 1 && (
                   <div className="absolute inset-0 flex items-center justify-between px-6 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
-                    <button 
-                      onClick={(e) => { e.stopPropagation(); setFotoAtual(prev => prev === 0 ? projetoSelecionado.galeria.length - 1 : prev - 1); }} 
-                      className="text-white/60 hover:text-white transition-colors p-2"
-                    >
+                    <button onClick={(e) => { e.stopPropagation(); setFotoAtual(prev => prev === 0 ? projetoSelecionado.galeria.length - 1 : prev - 1); }} className="text-white/60 hover:text-white transition-colors p-2">
                       <SetaEsquerda />
                     </button>
-                    <button 
-                      onClick={(e) => { e.stopPropagation(); setFotoAtual(prev => prev === projetoSelecionado.galeria.length - 1 ? 0 : prev + 1); }} 
-                      className="text-white/60 hover:text-white transition-colors p-2"
-                    >
+                    <button onClick={(e) => { e.stopPropagation(); setFotoAtual(prev => prev === projetoSelecionado.galeria.length - 1 ? 0 : prev + 1); }} className="text-white/60 hover:text-white transition-colors p-2">
                       <SetaDireita />
                     </button>
                   </div>
