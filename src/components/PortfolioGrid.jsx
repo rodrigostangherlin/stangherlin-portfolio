@@ -35,28 +35,82 @@ const FluidReveal = ({ children, delay = 0 }) => (
   </div>
 );
 
+// O Componente Inteligente de cada Foto
 function PortfolioItem({ projeto, index, onClick }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.8, delay: (index % 6) * 0.15 }}
-      className="relative aspect-[4/5] cursor-pointer group"
+      className="relative aspect-[4/5] cursor-pointer group overflow-hidden"
       onClick={() => onClick(projeto)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="w-full h-full relative overflow-hidden rounded-sm bg-gray-100">
-        <Image 
-          src={projeto.imagem_capa} 
-          alt={projeto.titulo} 
-          fill 
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-1000 group-hover:scale-105" 
+      <div className="w-full h-full relative overflow-hidden rounded-sm bg-[#0a0a0a]">
+        
+        {/* A IMAGEM (Começa PB, ganha cor no hover) */}
+        <motion.div
+          animate={{ 
+            filter: isHovered ? "grayscale(0%)" : "grayscale(100%)",
+            scale: isHovered ? 1.05 : 1 
+          }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="absolute inset-0 w-full h-full"
+        >
+          <Image 
+            src={projeto.imagem_capa} 
+            alt={projeto.titulo} 
+            fill 
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover" 
+          />
+        </motion.div>
+
+        {/* O DEGRADÊ ESCURO (Garante que a letra branca fique legível em fotos muito claras) */}
+        <motion.div
+          animate={{ opacity: isHovered ? 1 : 0 }}
+          transition={{ duration: 0.4, delay: isHovered ? 0.4 : 0 }}
+          className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent z-10"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 p-6 flex flex-col justify-end">
-          <h3 className="text-white text-xl font-medium uppercase tracking-wider">{projeto.titulo}</h3>
-          <p className="text-gray-300 text-xs uppercase tracking-widest">{projeto.local}</p>
+
+        {/* A CORTINA BRANCA (A Engenharia principal) */}
+        <motion.div
+          variants={{
+            rest: { top: "100%", bottom: "0%" },
+            hover: { 
+              top: ["100%", "0%", "0%"], 
+              bottom: ["0%", "0%", "100%"],
+              transition: { duration: 0.9, times: [0, 0.4, 1], ease: [0.76, 0, 0.24, 1] }
+            }
+          }}
+          initial="rest"
+          animate={isHovered ? "hover" : "rest"}
+          className="hidden md:block absolute inset-x-0 bg-white z-20"
+        />
+
+        {/* O TEXTO (Entra em cena quando a cortina começa a fugir pelo teto) */}
+        <motion.div
+          animate={{ 
+            y: isHovered ? 0 : 20, 
+            opacity: isHovered ? 1 : 0 
+          }}
+          transition={{ duration: 0.4, delay: isHovered ? 0.45 : 0, ease: "easeOut" }}
+          className="hidden md:flex absolute bottom-0 left-0 right-0 p-8 flex-col justify-end z-30"
+        >
+          <h3 className="text-white text-2xl font-light uppercase tracking-widest mb-2">{projeto.titulo}</h3>
+          <p className="text-gray-300 text-xs uppercase tracking-[0.2em]">{projeto.local}</p>
+        </motion.div>
+
+        {/* MOBILE (Rodapé estático limpo, pois no celular não há mouse hover) */}
+        <div className="md:hidden absolute bottom-0 left-0 right-0 bg-white p-6 z-30">
+          <h3 className="text-black text-lg font-medium uppercase tracking-wider">{projeto.titulo}</h3>
+          <p className="text-gray-500 text-[10px] uppercase tracking-widest mt-1">{projeto.local}</p>
         </div>
+
       </div>
     </motion.div>
   );
