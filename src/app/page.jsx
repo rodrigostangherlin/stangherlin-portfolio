@@ -5,11 +5,11 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import PortfolioGrid from '../components/PortfolioGrid';
 import Footer from '../components/Footer';
+import CustomCursor from '../components/CustomCursor';
 
 // A Engrenagem de Alta Performance: Revelação Fluida com Inversão
 const FluidReveal = ({ children, delay = 0 }) => (
   <div className="relative inline-block w-fit">
-    {/* CAMADA 1: O Texto Final (Preto). Fica oculto até a fase final da animação. */}
     <motion.div
       initial={{ clipPath: "inset(0 100% 0 0)" }}
       whileInView={{ clipPath: ["inset(0 100% 0 0)", "inset(0 100% 0 0)", "inset(0 100% 0 0)", "inset(0 0% 0 0)"] }}
@@ -19,8 +19,6 @@ const FluidReveal = ({ children, delay = 0 }) => (
     >
       {children}
     </motion.div>
-
-    {/* CAMADA 2: A Tinta Preta (Texto Branco). Entra primeiro, preenche, e depois sai. */}
     <motion.div
       initial={{ clipPath: "inset(0 100% 0 0)" }}
       whileInView={{ clipPath: ["inset(0 100% 0 0)", "inset(0 0% 0 0)", "inset(0 0% 0 0)", "inset(0 0 0 100%)"] }}
@@ -52,6 +50,9 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col relative">
       
+      {/* O CURSOR ESTRATÉGICO */}
+      <CustomCursor />
+
       {/* O PRE-LOADER CINEMATOGRÁFICO */}
       <AnimatePresence>
         {isLoading && (
@@ -61,12 +62,13 @@ export default function Home() {
             transition={{ duration: 1.5, ease: "easeInOut" }}
             className="fixed inset-0 z-[200] bg-[#1a1a1a] flex items-center justify-center overflow-hidden"
           >
+            {/* O ajuste de scale-[1.10] no mobile esconde a marca d'água perfeitamente */}
             <video 
               autoPlay 
               muted 
               playsInline
               onEnded={() => setIsLoading(false)}
-              className="absolute inset-0 w-full h-full object-cover scale-[1.05] md:scale-[1.15]"
+              className="absolute inset-0 w-full h-full object-cover scale-[1.10] md:scale-[1.15]"
             >
               <source src="/videos/logo-animada-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
               <source src="/videos/logo-animada.mp4" type="video/mp4" />
