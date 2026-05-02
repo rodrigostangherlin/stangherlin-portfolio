@@ -52,32 +52,25 @@ function PortfolioItem({ projeto, index, onClick }) {
     >
       <div className="w-full h-full relative overflow-hidden rounded-sm bg-[#0a0a0a]">
         
-        {/* A IMAGEM (Começa PB, ganha cor no hover) */}
-        <motion.div
-          animate={{ 
-            filter: isHovered ? "grayscale(0%)" : "grayscale(100%)",
-            scale: isHovered ? 1.05 : 1 
-          }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="absolute inset-0 w-full h-full"
-        >
+        {/* A IMAGEM: A mágica agora é feita pelo Tailwind (Colorida no mobile, PB no Desktop) */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
           <Image 
             src={projeto.imagem_capa} 
             alt={projeto.titulo} 
             fill 
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover" 
+            className="object-cover transition-all duration-1000 md:grayscale group-hover:grayscale-0 group-hover:scale-105" 
           />
-        </motion.div>
+        </div>
 
-        {/* O DEGRADÊ ESCURO (Garante que a letra branca fique legível em fotos muito claras) */}
+        {/* O DEGRADÊ ESCURO (Só aparece no desktop durante o hover) */}
         <motion.div
           animate={{ opacity: isHovered ? 1 : 0 }}
           transition={{ duration: 0.4, delay: isHovered ? 0.4 : 0 }}
           className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent z-10"
         />
 
-        {/* A CORTINA BRANCA (A Engenharia principal) */}
+        {/* A CORTINA BRANCA (Desliza e some no desktop) */}
         <motion.div
           variants={{
             rest: { top: "100%", bottom: "0%" },
@@ -92,7 +85,7 @@ function PortfolioItem({ projeto, index, onClick }) {
           className="hidden md:block absolute inset-x-0 bg-white z-20"
         />
 
-        {/* O TEXTO (Entra em cena quando a cortina começa a fugir pelo teto) */}
+        {/* O TEXTO (Flutua ao final da cortina no Desktop) */}
         <motion.div
           animate={{ 
             y: isHovered ? 0 : 20, 
@@ -105,7 +98,7 @@ function PortfolioItem({ projeto, index, onClick }) {
           <p className="text-gray-300 text-xs uppercase tracking-[0.2em]">{projeto.local}</p>
         </motion.div>
 
-        {/* MOBILE (Rodapé estático limpo, pois no celular não há mouse hover) */}
+        {/* MOBILE (Rodapé estático, garantindo usabilidade rápida no celular) */}
         <div className="md:hidden absolute bottom-0 left-0 right-0 bg-white p-6 z-30">
           <h3 className="text-black text-lg font-medium uppercase tracking-wider">{projeto.titulo}</h3>
           <p className="text-gray-500 text-[10px] uppercase tracking-widest mt-1">{projeto.local}</p>

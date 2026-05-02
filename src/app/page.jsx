@@ -62,7 +62,7 @@ export default function Home() {
             transition={{ duration: 1.5, ease: "easeInOut" }}
             className="fixed inset-0 z-[200] bg-[#1a1a1a] flex items-center justify-center overflow-hidden"
           >
-            {/* O ajuste de scale-[1.10] no mobile esconde a marca d'água perfeitamente */}
+            {/* O ajuste de scale-[1.10] no telemóvel esconde a marca de água perfeitamente */}
             <video 
               autoPlay 
               muted 
@@ -204,7 +204,7 @@ export default function Home() {
           </p>
           
           <a 
-            href="https://app-viabilidade.vercel.app/" 
+            href="https://app.stangherlin.arq.br/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-block bg-white text-black px-12 py-5 uppercase tracking-widest text-sm font-bold shadow-[0px_0px_15px_rgba(255,255,255,0.25)] hover:bg-gray-100 transition-all hover:scale-105 active:scale-95"
