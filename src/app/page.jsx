@@ -7,7 +7,6 @@ import PortfolioGrid from '../components/PortfolioGrid';
 import Footer from '../components/Footer';
 import CustomCursor from '../components/CustomCursor';
 
-// A Engrenagem de Alta Performance: Revelação Fluida com Inversão
 const FluidReveal = ({ children, delay = 0 }) => (
   <div className="relative inline-block w-fit">
     <motion.div
@@ -49,11 +48,8 @@ export default function Home() {
 
   return (
     <main className="min-h-screen flex flex-col relative">
-      
-      {/* O CURSOR ESTRATÉGICO */}
       <CustomCursor />
 
-      {/* O PRE-LOADER CINEMATOGRÁFICO */}
       <AnimatePresence>
         {isLoading && (
           <motion.div 
@@ -62,7 +58,6 @@ export default function Home() {
             transition={{ duration: 1.5, ease: "easeInOut" }}
             className="fixed inset-0 z-[200] bg-[#1a1a1a] flex items-center justify-center overflow-hidden"
           >
-            {/* O ajuste de scale-[1.10] no telemóvel esconde a marca de água perfeitamente */}
             <video 
               autoPlay 
               muted 
@@ -90,13 +85,7 @@ export default function Home() {
           transition={{ duration: 1.5, delay: 0.8, ease: "easeOut" }}
           className="relative w-48 h-8 md:h-10 hover:opacity-80 transition-opacity cursor-pointer"
         >
-          <Image 
-            src="/images/logo-texto.png" 
-            alt="Stangherlin" 
-            fill 
-            className="object-contain object-left" 
-            priority
-          />
+          <Image src="/images/logo-texto.png" alt="Stangherlin" fill className="object-contain object-left" priority />
         </motion.div>
 
         <div className="space-x-8 text-sm uppercase tracking-wide hidden md:block drop-shadow-md">
@@ -106,15 +95,11 @@ export default function Home() {
         </div>
       </motion.nav>
 
-      {/* HERO SECTION */}
       <section className="relative h-screen flex flex-col justify-center items-center text-center p-6 overflow-hidden">
         <Image 
           src="/images/portfolio/hero-bg.jpg" 
           alt="Stangherlin Arquitetura - Projetos de Alto Padrão"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center -z-10"
+          fill priority sizes="100vw" className="object-cover object-center -z-10"
         />
         <div className="absolute inset-0 bg-black/50 z-0"></div>
 
@@ -132,40 +117,23 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center px-4">
-            <a href="#portfolio" className="bg-white text-black px-8 py-4 uppercase tracking-widest text-sm hover:bg-gray-200 transition text-center w-full sm:w-auto">
-              Ver Obras
-            </a>
-            <a href="/viabilidade" className="border border-white text-white px-8 py-4 uppercase tracking-widest text-sm hover:bg-white hover:text-black transition text-center backdrop-blur-sm w-full sm:w-auto">
-              Analisar Viabilidade
-            </a>
+            <a href="#portfolio" className="bg-white text-black px-8 py-4 uppercase tracking-widest text-sm hover:bg-gray-200 transition text-center w-full sm:w-auto">Ver Obras</a>
+            <a href="/viabilidade" className="border border-white text-white px-8 py-4 uppercase tracking-widest text-sm hover:bg-white hover:text-black transition text-center backdrop-blur-sm w-full sm:w-auto">Analisar Viabilidade</a>
           </div>
         </motion.div>
       </section>
 
-      {/* MANIFESTO COM FLUID REVEAL */}
       <section id="manifesto" className="bg-white text-black py-24 lg:py-32 px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <div className="mb-20 text-center lg:text-left">
-            <motion.h2 
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1 }}
-              className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-6"
-            >
+            <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1 }} className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-6">
               O Manifesto Stangherlin
             </motion.h2>
-            
             <h3 className="text-3xl md:text-5xl font-light leading-snug md:leading-tight text-gray-900 max-w-4xl flex flex-col items-center lg:items-start space-y-2">
-              <FluidReveal delay={0.2}>
-                A arquitetura não é apenas o desenho de um horizonte.
-              </FluidReveal>
-              <FluidReveal delay={0.4}>
-                <span className="font-medium">É o motor financeiro de um empreendimento.</span>
-              </FluidReveal>
+              <FluidReveal delay={0.2}>A arquitetura não é apenas o desenho de um horizonte.</FluidReveal>
+              <FluidReveal delay={0.4}><span className="font-medium">É o motor financeiro de um empreendimento.</span></FluidReveal>
             </h3>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.8 }}
-              className="mt-12 text-gray-500 max-w-3xl text-lg font-light leading-relaxed text-left"
-            >
+            <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.8 }} className="mt-12 text-gray-500 max-w-3xl text-lg font-light leading-relaxed text-left">
               No mercado da construção civil, o amadorismo custa caro. Projetos desconexos, surpresas na execução e o desperdício de potencial construtivo são os maiores inimigos da rentabilidade. A Stangherlin nasceu para ser a solução definitiva contra a imprevisibilidade. Nós não desenhamos apenas edifícios; nós projetamos negócios altamente lucrativos, sólidos e escaláveis.
             </motion.p>
           </div>
@@ -175,17 +143,14 @@ export default function Home() {
               <h4 className="text-lg font-medium uppercase tracking-wider mb-3"><FluidReveal delay={0.1}>A Engrenagem Perfeita</FluidReveal></h4>
               <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.4 }} className="text-gray-500 font-light leading-relaxed">Acreditamos que um projeto excepcional vai muito além da estética. Ele é uma obra de arte sustentada por uma engrenagem interna que funciona com precisão absoluta. Compatibilizamos cada disciplina e prevemos soluções antes que os problemas cheguem ao canteiro de obras. O resultado? Uma economia em escala gigantesca, velocidade na entrega e a eliminação de repasses de custos desnecessários.</motion.p>
             </div>
-            
             <div>
               <h4 className="text-lg font-medium uppercase tracking-wider mb-3"><FluidReveal delay={0.2}>Estética de Resultados</FluidReveal></h4>
               <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.5 }} className="text-gray-500 font-light leading-relaxed">Para nós, a beleza tem um propósito e a estética é um investimento. Não acreditamos em modernismos vazios, como prédios futuristas ou fachadas verdes que trazem apenas custo e dor de cabeça futura. Cada traço do nosso design é calculado para agregar valor, gerar liquidez imediata e atrair o comprador final. Maximizamos o VGV do terreno sem perder um milímetro de conforto ou funcionalidade.</motion.p>
             </div>
-
             <div>
               <h4 className="text-lg font-medium uppercase tracking-wider mb-3"><FluidReveal delay={0.3}>Segurança e Escalabilidade</FluidReveal></h4>
               <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.6 }} className="text-gray-500 font-light leading-relaxed">O nosso compromisso inegociável é com a segurança jurídica e financeira do seu negócio. Entregamos projetos rigorosamente fundamentados nas legislações vigentes, garantindo aprovações ágeis junto aos órgãos competentes. Com a viabilidade técnica e financeira assegurada, sua construtora ganha a tração necessária para saltar e dominar um mercado altamente competitivo.</motion.p>
             </div>
-
             <div>
               <h4 className="text-lg font-medium uppercase tracking-wider mb-3"><FluidReveal delay={0.4}>O Teste do Tempo</FluidReveal></h4>
               <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.7 }} className="text-gray-500 font-light leading-relaxed">A verdadeira durabilidade não é um acaso; é o resultado da aplicação rigorosa de normas técnicas e do domínio da engenharia. Projetamos com o rigor da técnica e com linhas atemporais, garantindo que o seu empreendimento não apenas nasça forte, mas que envelheça com dignidade, mantendo seu valor ao longo das décadas.</motion.p>
@@ -194,19 +159,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* NÚMEROS DE AUTORIDADE ANTES DO PORTFÓLIO */}
+      <section className="bg-[#0a0a0a] text-white py-24 px-6 lg:px-12 border-t border-gray-800" id="portfolio">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-center items-center md:divide-x divide-gray-800 text-center gap-12 md:gap-0">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="px-10 flex flex-col items-center w-full md:w-1/3">
+            <span className="text-5xl md:text-7xl font-light mb-3 text-white">+3M</span>
+            <span className="text-xs uppercase tracking-[0.2em] text-gray-500">M² Projetados</span>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="px-10 flex flex-col items-center w-full md:w-1/3">
+            <span className="text-5xl md:text-7xl font-light mb-3 text-white">+370</span>
+            <span className="text-xs uppercase tracking-[0.2em] text-gray-500">Projetos Realizados</span>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.4 }} className="px-10 flex flex-col items-center w-full md:w-1/3">
+            <span className="text-5xl md:text-7xl font-light mb-3 text-white">13</span>
+            <span className="text-xs uppercase tracking-[0.2em] text-gray-500">Anos de Experiência</span>
+          </motion.div>
+        </div>
+      </section>
+
       <PortfolioGrid />
 
-      <section id="viabilidade" className="bg-gray-900 text-white p-12 lg:p-32 text-center">
+      <section id="viabilidade-cta" className="bg-gray-900 text-white p-12 lg:p-32 text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl lg:text-4xl font-light mb-6">Consulta de Viabilidade Urbanística</h2>
           <p className="text-gray-400 max-w-2xl mx-auto mb-10 text-lg font-light">
             Desenvolvemos uma ferramenta exclusiva para análises rápidas de zoneamento e potencial construtivo. Tome decisões de investimento com precisão geométrica.
           </p>
-          
-          <a 
-            href="/viabilidade" 
-            className="inline-block bg-white text-black px-12 py-5 uppercase tracking-widest text-sm font-bold shadow-[0px_0px_15px_rgba(255,255,255,0.25)] hover:bg-gray-100 transition-all hover:scale-105 active:scale-95"
-          >
+          <a href="/viabilidade" className="inline-block bg-white text-black px-12 py-5 uppercase tracking-widest text-sm font-bold shadow-[0px_0px_15px_rgba(255,255,255,0.25)] hover:bg-gray-100 transition-all hover:scale-105 active:scale-95">
             Descobrir Potencial do Terreno
           </a>
         </div>
@@ -223,9 +202,7 @@ export default function Home() {
             onClick={scrollToTop}
             className="fixed bottom-8 right-8 z-50 w-12 h-12 flex items-center justify-center rounded-full border border-gray-200 bg-white/40 backdrop-blur-md text-gray-500 shadow-sm hover:bg-white hover:text-black hover:border-gray-300 transition-all duration-500"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="18 15 12 9 6 15"></polyline>
-            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
           </motion.button>
         )}
       </AnimatePresence>
