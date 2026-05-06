@@ -16,6 +16,8 @@ const FluidReveal = ({ children, delay = 0 }) => (
 
 export default function Viabilidade() {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  // Estado para capturar a posição do mouse (inicia fora da tela para esconder a malha no load)
+  const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
 
   useEffect(() => {
     const handleScroll = () => setShowScrollTop(window.scrollY > 500);
@@ -24,6 +26,15 @@ export default function Viabilidade() {
   }, []);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Função que atualiza as coordenadas do efeito lanterna
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
 
   return (
     <main className="min-h-screen flex flex-col relative bg-white selection:bg-black selection:text-white">
@@ -45,24 +56,34 @@ export default function Viabilidade() {
         </div>
       </motion.nav>
 
-      {/* HERO COM FUNDO DE MALHA PARAMÉTRICA ANIMADA */}
-      <section className="relative pt-40 pb-20 lg:pt-56 lg:pb-32 px-6 lg:px-12 flex flex-col items-center text-center overflow-hidden">
+      {/* HERO COM EFEITO FLASHLIGHT INTERATIVO */}
+      <section 
+        className="relative pt-40 pb-20 lg:pt-56 lg:pb-32 px-6 lg:px-12 flex flex-col items-center text-center overflow-hidden group"
+        onMouseMove={handleMouseMove}
+      >
         
-        {/* O Motor de Cálculo (Grid CSS Animado) */}
-        <div className="absolute inset-0 pointer-events-none z-0 opacity-20">
+        {/* O Motor de Cálculo */}
+        <div className="absolute inset-0 pointer-events-none z-0 opacity-60"> {/* Opacidade aumentada para tornar a malha bem visível */}
+          
           <motion.div 
             animate={{ backgroundPosition: ['0px 0px', '-40px -40px'] }}
             transition={{ repeat: Infinity, ease: "linear", duration: 4 }}
             className="absolute inset-0 w-[200%] h-[200%] bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:40px_40px]"
           />
-          {/* Degradê branco para suavizar as bordas da malha */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,white_80%)]"></div>
+          
+          {/* Fallback para Mobile (fade normal estático) */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,white_80%)] md:hidden"></div>
+          
+          {/* Efeito Lanterna para Desktop (O fundo branco cobre a malha, o cursor perfura o fundo) */}
+          <div
+            className="hidden md:block absolute inset-0 transition-opacity duration-300"
+            style={{
+              background: `radial-gradient(circle 400px at ${mousePos.x}px ${mousePos.y}px, transparent 0%, white 90%)`
+            }}
+          ></div>
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="relative z-10 max-w-5xl"
-        >
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2, ease: "easeOut" }} className="relative z-10 max-w-5xl pointer-events-none">
           <h2 className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-6 font-bold">Simulador Paramétrico</h2>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-8 tracking-tight leading-tight">
             Não compre ilusões. <br />
@@ -71,7 +92,7 @@ export default function Viabilidade() {
           <p className="text-lg md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 font-light leading-relaxed">
             Substitua suposições por dados matemáticos. O app calcula recuos, avanços e a viabilidade preliminar para você negociar aquisições e permutas com precisão técnica e transparência.
           </p>
-          <a href="https://app.stangherlin.arq.br" target="_blank" rel="noopener noreferrer" className="inline-block bg-black text-white px-10 py-5 uppercase tracking-widest text-sm hover:bg-gray-800 transition duration-300 shadow-xl">
+          <a href="https://app.stangherlin.arq.br" target="_blank" rel="noopener noreferrer" className="inline-block bg-black text-white px-10 py-5 uppercase tracking-widest text-sm hover:bg-gray-800 transition duration-300 shadow-xl pointer-events-auto">
             Iniciar Simulação Gratuita
           </a>
         </motion.div>
@@ -99,17 +120,13 @@ export default function Viabilidade() {
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1 }}>
               <h4 className="text-sm uppercase tracking-[0.2em] text-gray-400 mb-4 border-b border-gray-200 pb-4">Inteligência Construtiva</h4>
               <p className="text-gray-900 text-xl font-light leading-relaxed mb-6">Nosso cérebro matemático faz o trabalho pesado em instantes.</p>
-              <p className="text-gray-500 font-light leading-relaxed">
-                O App processa a legislação local, cruzando recuos e exigências de esquina para entregar uma análise preliminar com extrema precisão técnica. É a ferramenta definitiva para o mercado imobiliário filtrar oportunidades rapidamente, separando os terrenos inviáveis dos verdadeiramente promissores.
-              </p>
+              <p className="text-gray-500 font-light leading-relaxed">O App processa a legislação local, cruzando recuos e exigências de esquina para entregar uma análise preliminar com extrema precisão técnica. É a ferramenta definitiva para o mercado imobiliário filtrar oportunidades rapidamente, separando os terrenos inviáveis dos verdadeiramente promissores.</p>
             </motion.div>
           </div>
           <div className="bg-gray-50 p-10 border-l-4 border-black">
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }}>
               <h4 className="text-lg font-medium uppercase tracking-wider mb-4 text-black">Aviso Técnico</h4>
-              <p className="text-gray-600 font-light leading-relaxed">
-                O aplicativo entrega o limite matemático e legal do lote, mas é uma análise preliminar. Números brutos não constroem prédios. O software filtra o terreno, mas não substitui o refinamento comercial e a visão de um arquiteto habilitado para extrair o máximo VGV. O app te dá a segurança para fechar o negócio; nós te damos a visão para transformar essa área no projeto mais rentável possível.
-              </p>
+              <p className="text-gray-600 font-light leading-relaxed">O aplicativo entrega o limite matemático e legal do lote, mas é uma análise preliminar. Números brutos não constroem prédios. O software filtra o terreno, mas não substitui o refinamento comercial e a visão de um arquiteto habilitado para extrair o máximo VGV. O app te dá a segurança para fechar o negócio; nós te damos a visão para transformar essa área no projeto mais rentável possível.</p>
             </motion.div>
           </div>
         </div>
@@ -118,20 +135,14 @@ export default function Viabilidade() {
       <section className="bg-gray-900 text-white py-24 px-6 lg:px-12 text-center">
         <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="max-w-4xl mx-auto">
           <h2 className="text-3xl lg:text-5xl font-light mb-10 leading-tight">Pare de adivinhar. <br /><span className="font-medium">Comece a calcular.</span></h2>
-          <a href="https://app.stangherlin.arq.br" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-black px-12 py-5 uppercase tracking-widest text-sm font-bold shadow-lg hover:scale-105 transition-transform">
-            Acessar Plataforma Web
-          </a>
+          <a href="https://app.stangherlin.arq.br" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-black px-12 py-5 uppercase tracking-widest text-sm font-bold shadow-lg hover:scale-105 transition-transform">Acessar Plataforma Web</a>
         </motion.div>
       </section>
 
       <Footer />
-
       <AnimatePresence>
         {showScrollTop && (
-          <motion.button
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} onClick={scrollToTop}
-            className="fixed bottom-8 right-8 z-50 w-12 h-12 flex items-center justify-center rounded-full border border-gray-200 bg-white/40 backdrop-blur-md text-gray-500 shadow-sm hover:bg-white hover:text-black hover:border-gray-300 transition-all duration-500"
-          >
+          <motion.button initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} onClick={scrollToTop} className="fixed bottom-8 right-8 z-50 w-12 h-12 flex items-center justify-center rounded-full border border-gray-200 bg-white/40 backdrop-blur-md text-gray-500 shadow-sm hover:bg-white hover:text-black hover:border-gray-300 transition-all duration-500">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
           </motion.button>
         )}
