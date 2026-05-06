@@ -102,7 +102,7 @@ export default function Home() {
         <div className="space-x-8 text-sm uppercase tracking-wide hidden md:block drop-shadow-md">
           <a href="#manifesto" className="hover:text-gray-300 transition">Manifesto</a>
           <a href="#portfolio" className="hover:text-gray-300 transition">Projetos</a>
-          <a href="#viabilidade" className="hover:text-gray-300 transition">App</a>
+          <a href="/viabilidade" className="hover:text-gray-300 transition">App de Viabilidade</a>
         </div>
       </motion.nav>
 
@@ -135,7 +135,7 @@ export default function Home() {
             <a href="#portfolio" className="bg-white text-black px-8 py-4 uppercase tracking-widest text-sm hover:bg-gray-200 transition text-center w-full sm:w-auto">
               Ver Obras
             </a>
-            <a href="#viabilidade" className="border border-white text-white px-8 py-4 uppercase tracking-widest text-sm hover:bg-white hover:text-black transition text-center backdrop-blur-sm w-full sm:w-auto">
+            <a href="/viabilidade" className="border border-white text-white px-8 py-4 uppercase tracking-widest text-sm hover:bg-white hover:text-black transition text-center backdrop-blur-sm w-full sm:w-auto">
               Analisar Viabilidade
             </a>
           </div>
@@ -204,12 +204,10 @@ export default function Home() {
           </p>
           
           <a 
-            href="https://app.stangherlin.arq.br/" 
-            target="_blank" 
-            rel="noopener noreferrer"
+            href="/viabilidade" 
             className="inline-block bg-white text-black px-12 py-5 uppercase tracking-widest text-sm font-bold shadow-[0px_0px_15px_rgba(255,255,255,0.25)] hover:bg-gray-100 transition-all hover:scale-105 active:scale-95"
           >
-            Acessar Plataforma Web
+            Descobrir Potencial do Terreno
           </a>
         </div>
       </section>
