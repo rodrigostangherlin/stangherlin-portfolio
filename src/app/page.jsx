@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import PortfolioGrid from '../components/PortfolioGrid';
@@ -18,11 +18,21 @@ export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  // INJEÇÃO DA VELOCIDADE 3.0x
+  const videoRef = useRef(null);
+
   useEffect(() => {
     const handleScroll = () => setShowScrollTop(window.scrollY > 500);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Motor que dispara a aceleração assim que a página carrega
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 3.0; 
+    }
+  }, [isLoading]);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -33,7 +43,7 @@ export default function Home() {
       <AnimatePresence>
         {isLoading && (
           <motion.div initial={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1.5, ease: "easeInOut" }} className="fixed inset-0 z-[200] bg-[#1a1a1a] flex items-center justify-center overflow-hidden">
-            <video autoPlay muted playsInline onEnded={() => setIsLoading(false)} className="absolute inset-0 w-full h-full object-cover scale-[1.10] md:scale-[1.15]">
+            <video ref={videoRef} autoPlay muted playsInline onEnded={() => setIsLoading(false)} className="absolute inset-0 w-full h-full object-cover scale-[1.10] md:scale-[1.15]">
               <source src="/videos/logo-animada-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
               <source src="/videos/logo-animada.mp4" type="video/mp4" />
             </video>
@@ -98,7 +108,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* NÚMEROS DE AUTORIDADE (AJUSTADO PARA +3 MILHÕES) */}
+      {/* NÚMEROS DE AUTORIDADE */}
       <section className="bg-[#0a0a0a] text-white py-24 px-6 lg:px-12 border-t border-gray-800" id="portfolio">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-center items-center md:divide-x divide-gray-800 text-center gap-12 md:gap-0">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="px-10 flex flex-col items-center w-full md:w-1/3">
